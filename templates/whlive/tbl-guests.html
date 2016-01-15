@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/media/radio/style2.css" />
+<link rel="stylesheet" type="text/css" href="http://dataomaha.com/media/radio/ionicons.css" />
+<style>
+	p { font-size: 1.25em; }
+</style>
+<script type="text/javascript" src="//use.typekit.net/kjy8htt.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		
+
+
+</head>
+
+
+<body>
+
+
+
+{% if guests %}
+	
+	<h2><i class="icon ion-ios7-people"></i> This week's TBL lineup</h2>
+	<p>{{ guests.text|safe|linebreaks }}</p>
+
+{% endif %}
+
+
+
+</body>
+</html>

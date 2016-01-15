@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" version="2.0">
+	<channel>
+		<title>The Bottom Line with Mike'l Severe</title>
+		<link>http://omaha.com/bottomline</link>
+		<description>A daily talk show - sports and more - from the Omaha World-Herald with host Mike'l Severe. Weekdays from 2-6 p.m.</description>
+		<language>en-us</language>
+		<generator>Dataomaha.com Feed Generator</generator>
+		<pubDate>{{ pubdate.date|date:"r" }}</pubDate>
+		<itunes:keywords>nebraska,huskers,creighton,omaha,world-herald,tbl,bottom line</itunes:keywords>
+		<itunes:subtitle/>
+		<itunes:explicit>no</itunes:explicit>
+		<itunes:block>no</itunes:block>
+		<itunes:image href="http://dataomaha.com/media/radio/logo2.png"/>
+		<itunes:author>Omaha World-Herald</itunes:author>
+		<itunes:owner>
+			<itunes:name>Jeff Bundy</itunes:name>
+			<itunes:email>jeff.bundy@owh.com</itunes:email>
+		</itunes:owner>
+		<itunes:summary>A daily talk show - sports and more - from the Omaha World-Herald with host Mike'l Severe. Weekdays from 2-6 p.m.</itunes:summary>
+		<itunes:category text="Sports &amp; Recreation"/>
+		<atom:link rel="self" type="application/rss+xml" href="http://dataomaha.com/whlive/TBL/feed"/>
+		
+		
+		{% for segment in segments %}
+			<item>
+				<title>{{ segment.date|date:"N j" }} - {{ segment.name }}</title>
+				<description>
+				{{ segment.description }}
+				</description>
+				<guid isPermaLink="true">
+				{{ segment.mp3_link }}
+				</guid>
+				<comments>
+				{{ segment.mp3_link }}
+				</comments>
+				<pubDate>{{ segment.date|date:"r" }}</pubDate> <!-- Wed, 27 Nov 2013 18:44:18 GMT -->
+				<dcterms:modified>{{ segment.date|date:"Y-m-d" }}</dcterms:modified> <!-- 2013-11-27 -->
+				<dcterms:created>{{ segment.date|date:"Y-m-d" }}</dcterms:created> <!-- 2013-11-27 -->
+				<link>http://omaha.com/bottomline</link>
+				<dc:creator>Omaha World-Herald</dc:creator>
+				<itunes:keywords>nebraska,huskers,creighton,omaha,world-herald,tbl,bottom line</itunes:keywords>
+				<enclosure type="audio/mpeg" url="{{ segment.mp3_link }}"/>
+				<itunes:image href="http://dataomaha.com/media/radio/logo2.png"/>
+				<itunes:explicit>no</itunes:explicit>
+				<itunes:order>{{ forloop.counter }}</itunes:order>
+				<itunes:summary>
+				{{ segment.description }}
+				</itunes:summary>
+				<itunes:subtitle>
+				{{ segment.description }}
+				</itunes:subtitle>
+			</item>
+		{% endfor %}
+		
+		
+	</channel>
+</rss>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<podcast_list>
+
+		{% for segment in segments %}
+    <item>
+        <title><![CDATA[{{ segment.date|date:"N j" }} - {{ segment.name }}]]></title>
+        <description><![CDATA[{{ segment.description }}]]></description>
+        <host><![CDATA[Mike'l Severe]]></host>
+        <image>
+            <url><![CDATA[http://dataomaha.com/media/radio/logo2.png]]></url>
+        </image>
+        <link><![CDATA[{{ segment.mp3_link }}]]></link>
+    </item>
+		{% endfor %}
+	
+</podcast_list>

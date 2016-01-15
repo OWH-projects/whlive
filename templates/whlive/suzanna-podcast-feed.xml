@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" version="2.0">
+
+	<channel>
+
+		<title>Conversations with Suzanna</title>
+		<link>http://www.omaha.com/suzanna</link>
+		<language>en-us</language>
+		<description>A show that will entertain, inspire and give you ideas on how to create the life you want and take a peek into your future. Hosted by Suzanna Stickney. Noon to 1 p.m., Monday, Wednesday and Friday on World-Herald Live. Omaha.com/suzanna</description>
+		<generator>Dataomaha.com Feed Generator - dataomaha.com/whlive/suzanna/feed</generator>
+		
+		<itunes:subtitle>Noon to 1 p.m., Monday, Wednesday and Friday on World-Herald Live</itunes:subtitle>
+		<itunes:author>Suzanna Stickney</itunes:author>
+		<itunes:summary>A show that will entertain, inspire and give you ideas on how to create the life you want and take a peek into your future. Hosted by Suzanna Stickney. Noon to 1 p.m., Monday, Wednesday and Friday on World-Herald Live. Omaha.com/suzanna</itunes:summary>
+
+		<itunes:owner>
+			<itunes:name>Jeff Bundy</itunes:name>
+			<itunes:email>jeff.bundy@owh.com</itunes:email>
+		</itunes:owner>
+
+		<itunes:image href="http://dataomaha.com/media/whlive/suzanna/podcast-image.jpg" />
+		
+		<itunes:category text="Health">
+			<itunes:category text="Self-Help" />
+		</itunes:category>
+		
+		<itunes:explicit>no</itunes:explicit>
+		
+
+		<atom:link rel="self" type="application/rss+xml" href="http://dataomaha.com/whlive/suzanna/feed"/>
+
+
+
+		{% for segment in new_segments %}
+			<item>
+				<title>{{ segment.title }}</title>
+				<description>
+				{{ segment.description }}
+				</description>
+				<guid isPermaLink="true">
+				{{ segment.guid }}
+				</guid>
+				<comments>
+				{{ segment.guid }}
+				</comments>
+				<pubDate>{{ segment.published }}</pubDate> <!-- Wed, 27 Nov 2013 18:44:18 GMT -->
+				<dcterms:modified>{{ segment.date }}</dcterms:modified> <!-- 2013-11-27 -->
+				<dcterms:created>{{ segment.date }}</dcterms:created> <!-- 2013-11-27 -->
+				<link>http://omaha.com/suzanna</link>
+				<dc:creator>Suzanna Stickney</dc:creator>
+				<itunes:keywords>psychic, suzanna, stickney, psychic suzanna, suzanna stickney, conversations, pyschic</itunes:keywords>
+				<enclosure type="audio/mpeg" url="{{ segment.guid }}"/>
+				<itunes:image href="http://dataomaha.com/media/whlive/suzanna/podcast-image.jpg"/>
+				<itunes:explicit>no</itunes:explicit>
+				<itunes:order>{{ forloop.counter }}</itunes:order>
+				<itunes:summary>
+				{{ segment.description }}
+				</itunes:summary>
+				<itunes:subtitle>
+				{{ segment.description }}
+				</itunes:subtitle>
+			</item>
+		{% endfor %}	
+		
+		
+		
+		
+
+	</channel>
+
+</rss>
