@@ -5,6 +5,7 @@ urlpatterns = patterns('',
     (r'^/segment/(?P<segment>[0-9_.-]+)$', 'myproject.whlive.views.SingleSegment'),
     (r'^/TBL/segments2', 'myproject.whlive.views.TBLsegmentsBackbone'),
     (r'^/TBL/segments', 'myproject.whlive.views.TBLsegments'), # javascript player on omaha.com/bottomline
+    (r'^/TBL/stream', 'myproject.whlive.views.Stream'), # Live stream iframe. Using rtmp feed from Mike Flood's group
     (r'^/TBL/guests', 'myproject.whlive.views.TBLguests'), # used to embed schedule on Blox version of omaha.com/bottomline
     (r'^/TBL/feed2', 'myproject.whlive.views.TBLfeed'), # TuneIn feed, Dataomaha Segments app XML, Segments app not updated after 16-Feb-2015
     (r'^/TBL/feed', 'myproject.whlive.views.TBLfeed2'), # New TuneIn feed with Backbone XML

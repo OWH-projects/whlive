@@ -84,17 +84,22 @@ def Backbone(request):
 def TBLmain(request):
     feed = feedparser.parse('http://owh.backbonebroadcast.com/owh_mp3/tbl_podcast_alt.xml')
     guests = Schedule.objects.get(show__name="The Bottom Line")
-    new_segments = feed.entries
+    new_segments = feed.entries[:20]
     url = "http://feeds.newsinc.com/feeds/playlist?format=rss&encoding=utf16&adnetid=91341&sitesection=omahawh&apikey=aAzQWSqIsEPisXEKnlfQog%3D%3D"
     r = requests.get(url)
     soup = BeautifulSoup(r.content)
     ls = []
-    videos = soup("item")[:20]
+    videos = soup("item")[:10]
     for video in videos:
         ls.append([video.title.text, video.description.text, video.image.text, video.landingpageurl.text ])
     
     dictionaries = {'new_segments': new_segments, 'videos': videos, 'guests': guests, 'ls':ls, }
     return render_to_response('whlive/tbl-main.html', dictionaries)
+
+def Stream(request):
+
+    dictionaries = { }
+    return render_to_response('whlive/tbl-stream.html', dictionaries)
 
     
 def Suzanna(request):
